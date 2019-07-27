@@ -48,8 +48,8 @@ public class App {
                 if (dateFirst.after(maxDateInDatabase)) {
                     database.queryWrite(connection, name, dateFirst, dateLast, count, ip, userAgent);
                 } else {
-                    System.out.println("База обновлена");
                     connection.close();
+                    System.out.println("База обновлена");
                     System.exit(0);
                 }
             }
