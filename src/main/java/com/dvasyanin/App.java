@@ -9,13 +9,12 @@ import java.sql.Timestamp;
 
 public class App {
     public static void main(String[] args) throws SQLException {
-        long startTime = System.currentTimeMillis();
 
         final String URL = "jdbc:postgresql://127.0.0.1:5432/slack";
         final String USER = "postgres";
         final String PASSWORD = "postgres";
 
-        final String SLACK_TOKEN = "xoxp-121046473458-473715617431-682182922855-5887d33a728ce2c7044a9cc8baa16a21";
+        final String SLACK_TOKEN = "";
         final int SLACK_COUNT_TOTAL = 1000;
         final int SLACK_PAGES_TOTAL = 20;
 
@@ -46,11 +45,9 @@ public class App {
                 ip = statUser.getString("ip");
                 userAgent = statUser.getString("user_agent");
                 // проверяю текущая дата раньше чем максимальная дата из базы?
-                if (dateFirst.after(maxDateInDatabase)) { //
+                if (dateFirst.after(maxDateInDatabase)) {
                     database.queryWrite(connection, name, dateFirst, dateLast, count, ip, userAgent);
                 } else {
-                    long finishTime = System.currentTimeMillis();
-                    System.out.println((finishTime - startTime) / 1000 + " s");
                     System.out.println("База обновлена");
                     connection.close();
                     System.exit(0);
@@ -58,7 +55,6 @@ public class App {
             }
         }
         connection.close();
-        long finishTime = System.currentTimeMillis();
-        System.out.println((finishTime - startTime) / 1000 + " s");
+        System.out.println("База обновлена");
     }
 }
