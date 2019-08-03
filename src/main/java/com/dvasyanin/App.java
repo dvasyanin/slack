@@ -14,7 +14,7 @@ public class App {
         final String USER = "postgres";
         final String PASSWORD = "postgres";
 
-        final String SLACK_TOKEN = "???";
+        final String SLACK_TOKEN = "";
         final int SLACK_COUNT_TOTAL = 1000;
         final int SLACK_PAGES_TOTAL = 20;
 
