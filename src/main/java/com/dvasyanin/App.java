@@ -10,11 +10,11 @@ import java.sql.Timestamp;
 public class App {
     public static void main(String[] args) throws SQLException {
 
-        final String URL = "jdbc:postgresql://127.0.0.1:5432/slack";
+        final String URL = "jdbc:postgresql://127.0.0.1:5434/slack";
         final String USER = "postgres";
         final String PASSWORD = "postgres";
 
-        final String SLACK_TOKEN = "";
+        final String SLACK_TOKEN = "???";
         final int SLACK_COUNT_TOTAL = 1000;
         final int SLACK_PAGES_TOTAL = 20;
 
