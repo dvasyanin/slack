@@ -14,7 +14,7 @@ public class Database {
         return con;
     }
 
-    public void queryWrite(Connection connection, String name, Timestamp dataFirst, Timestamp dataLast, int count, String ip, String userAgent) throws SQLException {
+    public void writeUserLog(Connection connection, String name, Timestamp dataFirst, Timestamp dataLast, int count, String ip, String userAgent) throws SQLException {
         String query = "INSERT INTO logs_slack(user_name, count, date_first, date_last, ip, user_agent) VALUES(?,?,?,?,?,?)";
         PreparedStatement pst = connection.prepareStatement(query);
         pst.setString(1, name);

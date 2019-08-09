@@ -7,22 +7,23 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.Scanner;
 
+import static com.dvasyanin.Utils.getYesterdayDate;
+
 public class Slack {
-    Utils utils = new Utils();
 
     //метод получения статистики из Slack
-    public JSONArray slackGetStatistics(String token, int count, int pages) {
-        String stat = slackGetRequest(token, count, pages);
+    public JSONArray getStatistics(String token, int count, int pages) {
+        String stat = getRequest(token, count, pages);
         JSONObject obj = new JSONObject(stat);
         JSONArray arr = obj.getJSONArray("logins");
         return arr;
     }
 
     // запрос в API Slack
-    private String slackGetRequest(String token, int count, int pages) {
+    private String getRequest(String token, int count, int pages) {
         String str = new String();
         String slackUrl = "https://slack.com/api/team.accessLogs?token=" + token + "&count="
-                + count + "&page=" + pages + "&before=" + utils.getYesterdayDate();
+                + count + "&page=" + pages + "&before=" + getYesterdayDate();
         HttpURLConnection slackConnection = null;
 
         try {

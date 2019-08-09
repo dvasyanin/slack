@@ -6,7 +6,7 @@ import java.util.Calendar;
 public class Utils {
 
     //метод для получения даты с начала текущего дня (00:00:00 часов) в Unix формате
-    public long getYesterdayDate() {
+    public static long getYesterdayDate() {
         Calendar calendar = Calendar.getInstance();
         calendar.set(Calendar.HOUR_OF_DAY, 24);
         calendar.set(Calendar.MINUTE, 0);
@@ -18,7 +18,7 @@ public class Utils {
     }
 
     // откатываю дату на месяц назад
-    public long getDateMinusMonth() {
+    public static long getDateMinusMonth() {
         Calendar calendar = Calendar.getInstance();
         calendar.set(Calendar.HOUR_OF_DAY, 24);
         calendar.set(Calendar.MINUTE, 0);
@@ -30,7 +30,7 @@ public class Utils {
     }
 
     //метод перевода времени из Unix time в человекочитабельный 1999-30-08 04:05:06
-    public Timestamp unixToTimestamp(long date) {
+    public static Timestamp unixToTimestamp(long date) {
         Timestamp timestamp = new Timestamp(date * 1000);
         return timestamp;
     }
