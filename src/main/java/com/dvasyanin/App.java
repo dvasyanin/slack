@@ -1,5 +1,6 @@
 package com.dvasyanin;
 
+import io.github.cdimascio.dotenv.Dotenv;
 import org.json.JSONObject;
 
 import java.sql.Connection;
@@ -13,14 +14,16 @@ import static com.dvasyanin.Utils.unixToTimestamp;
 public class App {
     public static void main(String[] args) throws SQLException {
 
-//        final String URL = "jdbc:postgresql://127.0.0.1:5434/slack";
-        final String URL = "jdbc:postgresql://host.docker.internal:5434/slack";
-        final String USER = "postgres";
-        final String PASSWORD = "postgres";
+//      final String URL = "jdbc:postgresql://127.0.0.1:5434/slack";
+        Dotenv dotenv = Dotenv.configure().ignoreIfMalformed().load();
 
-        final String SLACK_TOKEN = "xoxp-121046473458-473715617431-709809922311-33be156b88996700cbe89ae8159cc2b0";
-        final int SLACK_COUNT_TOTAL = 1000;
-        final int SLACK_PAGES_TOTAL = 20;
+        final String URL = dotenv.get("URL");
+        final String USER = dotenv.get("USER");
+        final String PASSWORD = dotenv.get("PASSWORD");
+
+        final String SLACK_TOKEN = dotenv.get("SLACK_TOKEN");
+        final int SLACK_COUNT_TOTAL = Integer.parseInt(dotenv.get("SLACK_COUNT_TOTAL"));
+        final int SLACK_PAGES_TOTAL = Integer.parseInt(dotenv.get("SLACK_PAGES_TOTAL"));
 
         String name, userAgent, ip;
         Timestamp dateFirst, dateLast;
