@@ -23,7 +23,7 @@ public class Slack {
     private String getRequest(String token, int count, int pages) {
         String str = new String();
         String slackUrl = "https://slack.com/api/team.accessLogs?token=" + token + "&count="
-                + count + "&page=" + pages ; //+ "&before=" + getYesterdayDate()
+                + count + "&page=" + pages + "&before=" + getYesterdayDate();
         HttpURLConnection slackConnection = null;
 
         try {
