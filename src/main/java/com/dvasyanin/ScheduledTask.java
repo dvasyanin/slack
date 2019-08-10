@@ -14,8 +14,7 @@ import static com.dvasyanin.Utils.unixToTimestamp;
 public class ScheduledTask extends TimerTask {
     Dotenv dotenv = Dotenv.configure().ignoreIfMalformed().load();
 
-    final String URL = "jdbc:postgresql://127.0.0.1:5434/slack";
-    //final String URL = dotenv.get("URL");
+    final String URL = dotenv.get("URL");
     final String USER = dotenv.get("USER");
     final String PASSWORD = dotenv.get("PASSWORD");
 
