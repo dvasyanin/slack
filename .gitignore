@@ -6,6 +6,7 @@
 *.jar
 *.war
 *.ear
+*.env
 hs_err_pid*
 ##########################
 ## Maven
@@ -20,7 +21,6 @@ release.properties
 ## IntelliJ
 ##########################
 *.iml
-.env
 .idea/
 *.ipr
 *.iws
