@@ -5,6 +5,8 @@ import java.util.Timer;
 
 public class App {
     public static void main(String[] args) {
+        Logs logs = new Logs();
+        System.out.println(logs.getDate());
         Timer timer = new Timer();
         ScheduledTask scheduledTask = new ScheduledTask();
         long delay = 1000L;

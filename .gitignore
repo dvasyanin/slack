@@ -20,6 +20,7 @@ release.properties
 ## IntelliJ
 ##########################
 *.iml
+*.env
 .idea/
 *.ipr
 *.iws

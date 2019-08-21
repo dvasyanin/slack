@@ -24,6 +24,7 @@ public class ScheduledTask extends TimerTask {
 
     @Override
     public void run() {
+        Logs logs = new Logs();
         String name, userAgent, ip;
         Timestamp dateFirst, dateLast;
         int count;
@@ -65,7 +66,7 @@ public class ScheduledTask extends TimerTask {
                 }
             }
             connection.close();
-            System.out.println("База обновлена");
+            System.out.println("База обновлена: " + logs.getDate());
         } catch (SQLException e) {
             e.printStackTrace();
         }
